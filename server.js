@@ -12,16 +12,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 mongoose
-  .connect(
-    process.env.MONGODB_URI || "mongodb://localhost:27017/student-management-app",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
-
 // Configure Winston Logger
 const logger = winston.createLogger({
   level: "info",
