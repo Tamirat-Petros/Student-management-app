@@ -441,6 +441,10 @@ function formatUptime(seconds) {
     return parts.join(' ');
 }
 
+// Basic root route
+app.get('/', (req, res) => {
+  res.send('Server is running and ready!');
+});
 
 const PORT = process.env.PORT || 3000;
 
